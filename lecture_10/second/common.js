@@ -8,6 +8,14 @@ function interactionModal(modal) {
     modal.classList.toggle('hidden');
 }
 
+function sendRequest({url, method = 'GET', headers, body = null}) {
+    return fetch(BASE_SERVER_PATH + url, {
+        method,
+        headers,
+        body,
+    })
+}
+
 function setErrorChecked(inputs, errorMessage) {
     const error = errorCreator(errorMessage);
     inputs[0].parentElement.parentElement
